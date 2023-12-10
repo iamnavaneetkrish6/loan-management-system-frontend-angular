@@ -1,0 +1,43 @@
+<form #myform="ngForm" class="container col-md-4" (ngSubmit)="getLoanHistory(customerNameControl.value)">
+    <div class="form-group">
+      <label>Name:</label>
+      <input type="text" class="form-control" #customerNameControl="ngModel" name="customerName" required ngModel>
+      <span style="color: red;" *ngIf="customerNameControl.touched && customerNameControl.invalid">Name is Mandatory</span>
+    </div>
+  
+    <button type="submit" class="btn btn-primary" [disabled]="myform.invalid">Submit</button>
+    <button type="button" class="btn btn-primary" (click)="goBack()" style="margin-left: 20px;">Back</button>
+  </form>
+
+
+<div class="container">
+    <table class="table table-primary col-sm-10">
+    
+    <tr>
+        
+        <th>SNO.</th>
+        <th>Loan Number</th>
+        <th>Loan Type Name</th>
+        <th>Loan Amount</th>
+        <th>Loan Status</th>
+
+    </tr> 
+    <tr *ngFor="let loanHistory of loan; index as i">
+        
+        
+        <td>{{i+1}}</td>
+        <td>{{loanHistory.loanNo}}</td>
+        <td>{{loanHistory.loanTypeName}}</td> 
+        <td>{{loanHistory.loanAmount}}</td> 
+        <td>{{loanHistory.loanStatus}}</td>  
+
+    
+         
+    
+    </tr>
+    
+    </table>
+    </div>
+    <div id="Logout">
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
+    </div>

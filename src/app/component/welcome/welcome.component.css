@@ -1,0 +1,16 @@
+
+  #foot {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+  }
+
+  .loan-details {
+    background-color: rgba(54, 48, 98, 0.8); /* Adjust the alpha (fourth parameter) for transparency */
+    color: white;
+    padding: 20px;
+    width: 50%;
+    margin: 30px auto;
+    border-radius: 10px;
+}

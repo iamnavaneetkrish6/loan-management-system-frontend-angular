@@ -1,0 +1,7 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('./assets/bg.jpg') center/cover no-repeat fixed; /* Adjust the path to your image */
+  }
+
+ 

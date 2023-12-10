@@ -1,0 +1,43 @@
+<br>
+<div  class="container  col-lg-6">
+    <h2 style="text-align:center">Account Detail</h2>
+    <form #myform="ngForm" class="container col-md-4" (ngSubmit)="submitForm(myform.value)">
+  
+  
+<div class="form-group">
+    <label>Name:</label>
+    <input type="text" class="form-control" #nameControl="ngModel" name="name" required ngModel>
+    <span style="color: red;" *ngIf="nameControl.touched && nameControl.invalid">Name is Mandatory</span>
+</div>
+    
+<div class="form-group">
+    <label>Bank Name:</label>
+    <input type="text" class="form-control" #bankNameControl="ngModel" name="bankName" required ngModel>
+    <span style="color: red;" *ngIf="bankNameControl.touched && bankNameControl.invalid">Bank Name is Mandatory</span>
+</div>
+
+<div class="form-group">
+    <label>Account Number:</label>
+    <input type="number" class="form-control" #accountNumberControl="ngModel" name="accountNumber" required ngModel>
+    <span style="color: red;" *ngIf="accountNumberControl.touched && accountNumberControl.invalid">accountNumber is Mandatory</span>
+</div>
+
+
+ <div class="form-group">
+    <label>Aadhar Number:</label>
+    <input type="number" class="form-control" #aadharNumberControl="ngModel" name="aadharNumber" required ngModel>
+    <span style="color: red;" *ngIf="aadharNumberControl.touched && aadharNumberControl.invalid">aadharNumber is Mandatory</span>
+</div>
+
+<div class="form-group">
+      <label>Pan Card:</label>
+      <input type="text" class="form-control" #panCardNumberControl="ngModel" name="panCardNumber" required ngModel>
+      <span style="color: red;" *ngIf="panCardNumberControl.touched && panCardNumberControl.invalid">panCardNumber is Mandatory</span>
+</div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="myform.invalid">Submit</button>
+
+
+
+</form>
+</div>

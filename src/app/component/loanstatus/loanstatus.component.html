@@ -1,0 +1,23 @@
+<div class="container col-lg-6">
+    <h2 style="text-align:center">Loan Status</h2>
+    <form #myform="ngForm" class="container col-md-4" (ngSubmit)="getLoanStatus(loanNumber)">
+      <div class="form-group">
+        <label>Loan number:</label>
+        <input type="number" class="form-control" [(ngModel)]="loanNumber" name="loanNumber" required>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="myform.invalid">Submit</button>
+      <button type="button" class="btn btn-primary" (click)="goBack()" style="margin-left: 20px;">Back</button>
+    </form>
+</div>
+
+
+
+    <!-- Display loan status only if it's available -->
+    <div *ngIf="loanStatus" class="loan">
+      <p>LOAN STATUS:<b> LOAN {{ loanStatus }} </b></p>
+    </div>
+
+    <div id="Logout">
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
+    </div>
+  

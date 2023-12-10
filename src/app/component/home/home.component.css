@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #363062;
+  overflow: hidden;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  padding-top: 11px;
+  margin-left: 15px;
+}
+
+.logo a {
+  text-decoration: none;
+  color: white;
+}
+
+.logo a:hover {
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  color: white;
+  text-align: center;
+  padding: 14px 10px;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  background-color: #435585;
+}
+
+.login-button {
+  background-color: #435585;
+  border: none;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  margin-left: 20px; /* Adjusted margin for more space between login and about */
+  text-decoration: none;
+}
+
+.login-button:hover {
+  background-color: #818FB4;
+}
+
+.body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0px;   /* Adjusted padding to create space for the larger logo */
+  margin-left: 15px;
+}
+
+/* Increase the height of the logo */
+.logo img {
+  height: 50px; /* Adjust the height as needed */
+  width: auto; /* Maintain the aspect ratio */
+  padding: 0px;
+}

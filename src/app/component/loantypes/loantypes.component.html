@@ -1,0 +1,37 @@
+<div class="container">
+    <table class="table table-primary col-sm-10">
+    
+    <tr>
+        
+        <th>SNO.</th>
+        <th>LoanType</th>
+        <th>Interest rate</th>
+        <th>Term (in year)</th>
+        <th>Description</th> 
+        <th>loan Management Fee</th> 
+    </tr> 
+    <tr *ngFor="let loan of loanType; index as i">
+        
+        
+        <td>{{i+1}}</td>
+        <td>{{loan.loanTypeName}}</td>
+        <td>{{loan.loanInterestRate}}</td> 
+        <td>{{loan.loanTerm}}</td>  
+        <td>{{loan.loanDescription}}</td> 
+        <td>{{loan.loanManagementFees}}</td> 
+    
+         
+    
+    </tr>
+    
+    </table>
+    <button type="button" class="btn btn-primary" (click)="goBack()" style="margin-left: 20px;">Back</button>
+    </div>
+
+    <div id="Logout">
+        <button class="btn btn-danger" (click)="logout()">Logout</button>
+      </div>
+
+
+
+

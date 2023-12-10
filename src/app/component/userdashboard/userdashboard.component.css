@@ -1,0 +1,74 @@
+.custom-button {
+  background-color: #c471f5;
+  color: white; 
+}
+.dashboard
+{
+    height:523px;
+    width: 1200px;
+    padding-left:500px;
+    padding-top: 100px;
+}
+/* Style for dashboard container */
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  
+  /* Style for individual cards */
+  .card {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #fff;
+  }
+  
+  /* Style for card headings */
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  /* Style for card paragraphs */
+  .card p {
+    color: #666;
+  }
+  
+  /* Style for card buttons */
+  .card button {
+    padding: 8px 16px;
+    margin-top: 10px;
+    background-color: #363062;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for buttons */
+  .card button:hover {
+    background-color: #363062;
+  }
+
+  #Logout{
+    position: absolute;
+    top: 10px;
+    right: 75px;
+    height: 60px;
+    width: 5px;
+  }
+  .btn-danger{
+    right: 10px;
+    height: 55px;
+    
+  }

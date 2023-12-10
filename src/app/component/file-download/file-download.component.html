@@ -1,0 +1,11 @@
+
+<form (ngSubmit)="onDownloadFile(filenameToDownload)">
+<div>
+    <label >Filename :</label>
+<input type="text" name="filename" [(ngModel)]="filenameToDownload" required>
+</div>
+<button type="submit" class="btn btn-primary" [disabled]="!filenameToDownload">Download</button>
+</form>
+<div class="bbtn">
+<button type="submit" class="btn btn-primary" (click)="goBack()" style="margin-left: 20px;">Back to DASHBOARD</button>
+</div>

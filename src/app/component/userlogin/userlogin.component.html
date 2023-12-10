@@ -1,0 +1,30 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<div  class="container  col-lg-4 ">
+  <h2 style="text-align:center"><b>USER LOGIN </b></h2>
+  <br>
+    <form   #formData=ngForm  (ngSubmit)="readFormData(formData)" >
+        <div class="form-group">
+          <label for="exampleInputEmail1">UserName</label>
+          <input type="username" class="form-control" name="username"  required  #username="ngModel"  ngModel       >
+          <small id="userHelp" class="form-text text-muted">We'll never share your user details with anyone else.</small><br>
+          <span style="color:red"  *ngIf="username.touched && username.invalid" >UserName is required</span>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control"  name="password"  required  #pwd="ngModel"   ngModel>
+          <span style="color:red"   *ngIf="pwd.touched && pwd.invalid" >Password is mandartory</span>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary"  [disabled]="formData.invalid" routerLink="user-dashboard"  >Login</button>
+        <a routerLink="/userregister" class="ml-2">New User? Register Here</a>
+
+      </form>
+    
+      </div>
+
+     
+

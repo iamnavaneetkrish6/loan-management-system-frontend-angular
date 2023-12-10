@@ -1,0 +1,62 @@
+/* Add styles based on your design requirements */
+.container {
+    height:483px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .dashboard {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    width: 300px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .card h2 {
+    margin-bottom: 15px;
+  }
+  
+  .card p {
+    margin-bottom: 20px;
+  }
+  
+  a {
+    display: block;
+    background-color: #363062;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  a:hover {
+    background-color: #435585;
+  }
+
+  #Logout{
+    position: absolute;
+    top: 10px;
+    right: 75px;
+    height: 60px;
+    width: 5px;
+  }
+  .btn-danger{
+    right: 10px;
+    height: 55px;
+    
+  }
+  

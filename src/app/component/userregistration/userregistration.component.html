@@ -1,0 +1,69 @@
+<br>
+<div  class="container  col-sm-6">
+    <h2 style="text-align:center">Registration</h2>
+    <form #myform="ngForm" class="container col-md-4" (ngSubmit)="submitForm(myform.value)">
+    <div class="form-group">
+        <label>Name:</label>
+        <input type="text" class="form-control" #customerNameControl="ngModel" name="customerName" required ngModel>
+        <span style="color: red;" *ngIf="customerNameControl.touched && customerNameControl.invalid">Name is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Username:</label>
+        <input type="text" class="form-control" #customerUsernameControl="ngModel" name="customerUsername" required ngModel>
+        <span style="color: red;" *ngIf="customerUsernameControl.touched && customerUsernameControl.invalid">Username is Mandatory</span>
+    </div>
+
+    <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" #customerPasswordControl="ngModel" name="customerPassword" required ngModel>
+        <span style="color: red;" *ngIf="customerPasswordControl.touched && customerPasswordControl.invalid">Password is Mandatory</span>
+    </div>
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="email" class="form-control" #customerEmailIdControl="ngModel" name="customerEmailId" required ngModel>
+      <span style="color: red;" *ngIf="customerEmailIdControl.touched && customerEmailIdControl.invalid">Email is Mandatory</span>
+  </div>
+
+    <div class="form-group">
+      <label>Address:</label>
+      <input type="text" class="form-control" #customerAddressControl="ngModel" name="customerAddress" required ngModel>
+      <span style="color: red;" *ngIf="customerAddressControl.touched && customerAddressControl.invalid">Address is Mandatory</span>
+  </div>
+
+  <div class="form-group" >
+    <label>State:</label>
+    <select   class="form-control" #customerStateControl="ngModel" name="customerState" required ngModel>
+      <option value="tamilnadu">tamilnadu</option>
+      <option value="kerala">kerala</option>
+      <option value="andhrapradesh">andhrapradesh</option>
+      <option value="karnataka">karnataka</option>
+      <option value="telengana">telengana</option>
+      <option value="maharashtra">maharashtra</option>
+      <option value="orrisa">orrisa</option>
+    </select>
+    <span style="color: red;" *ngIf="customerStateControl.touched && customerStateControl.invalid">State is Mandatory</span>
+  </div>
+
+  <div class="form-group" >
+    <label>Country:</label>
+    <select   class="form-control" #customerCountryControl="ngModel" name="customerCountry" required ngModel>
+      <option value="india">india</option>
+      <option value="usa">usa</option>
+      <option value="canada">canada</option>
+      <option value="mexico">mexico</option>
+      <option value="australlia">australlia</option>
+      <option value="srilanka">srilanka</option>
+      <option value="qatar">qatar</option>
+    </select>
+    <span style="color: red;" *ngIf="customerCountryControl.touched && customerCountryControl.invalid">Country is Mandatory</span>
+  </div>
+
+
+    <button type="submit" class="btn btn-primary" [disabled]="myform.invalid">Submit</button>
+<button type="submit" class="btn btn-primary" (click)="goBack()" style="margin-left: 20px;">Back</button>
+
+
+</form>
+</div>
+

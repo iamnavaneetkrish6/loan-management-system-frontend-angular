@@ -1,0 +1,50 @@
+<div class="container">
+    <table class="table table-primary col-sm-10">
+    
+    <tr>
+        
+        <th>SNO.</th>
+        <th>Loan Number</th>
+        <th>Loan Type Name</th>
+        <th>property Address</th>
+        <th>customer Name</th>
+        <th>loanAmount</th>
+        <th>Action(approve)</th>
+        <th>Action(reject)</th>
+        <th>Action(Document-collateral)</th>
+
+    </tr> 
+    <tr *ngFor="let l of loan; index as i">
+        
+        
+        <td>{{i+1}}</td>
+        <td>{{l.loanNo}}</td>
+        <td>{{l.loanTypeName}}</td> 
+        <td>{{l.propertyAddress}}</td>  
+        <td>{{l.customerName}}</td>
+        <td>{{l.loanAmount}}</td>
+        <td><button type="button" class="btn btn-success"  (click)="approve(l)" >Approve</button></td> 
+        <td><button type="button" class="btn btn-danger"  (click)="reject(l)" >Reject</button></td> 
+        <td><button type="button" class="btn btn-primary"  (click)="onDownloadFile(l.customerName+l.loanNo+'.pdf')" >Download</button></td> 
+    
+         
+    
+    </tr>
+    
+    </table>
+    </div>
+
+
+<div class="buttons">
+    <button class="btn btn-primary" (click)="getAllLoan()">Show all applied Loan</button>
+    <button type="submit" class="btn btn-primary" (click)="goBack()" style="margin-left: 20px;">Back to DASHBOARD</button>
+</div>
+         <!-- <div class="card" (click)="documentVerfication()" style="position: fixed; bottom: 0; right: 0;">
+            <h2>Document verification</h2>
+            <p>Check the document to approve the loan</p>
+            <button class="btn btn-primary" (click)="documentVerfication()">click Here</button>
+          </div>-->
+          <div id="Logout">
+            <button class="btn btn-danger" (click)="logout()">Logout</button>
+          </div>
+    
