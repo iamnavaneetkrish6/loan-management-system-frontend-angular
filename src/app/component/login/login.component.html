@@ -1,6 +1,20 @@
-<div class="center-box">
-    <div class="btn">
-    <button class="user-button" routerLink="/userlogin">USER</button>
-    <button class="admin-button" routerLink="/adminlogin">ADMIN</button>
-  </div>
+<div class="container mt-4 p-3" style="background-color: #ffffff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 300px; max-width: 90%; max-height: 400px;">
+  <h2 style="text-align: center;"><b>Login</b></h2>
+  <br>
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <div class="form-group">
+      <label for="exampleInputEmail1">UserName</label>
+      <input type="username" class="form-control" name="username" required #username="ngModel" ngModel>
+      <small id="userHelp" class="form-text text-muted">We'll never share your user details with anyone else.</small><br>
+      <span style="color: red" *ngIf="username.touched && username.invalid">UserName is required</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" name="password" required #pwd="ngModel" ngModel>
+      <span style="color: red" *ngIf="pwd.touched && pwd.invalid">Password is mandatory</span>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+    <a routerLink="/userregister" class="ml-2">New User? Register Here</a>
+  </form>
 </div>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthRequest } from '../model/auth-request';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,11 @@ export class JwtClientService {
 
     baseURL:string = 'http://localhost:8485/api/login/';
 
+    token!:any;
+    tokenString!:string;
 
 
-
-
+/*
     getGeneratedTokenuser(requestBody: any){
 
       return this.http.post(this.baseURL+"customerlogin",requestBody,{responseType: 'text' as 'json'});
@@ -54,7 +56,36 @@ export class JwtClientService {
     const userAuthorized = !!token; // For demonstration, considers any non-empty token as authorized
 
     return of(userAuthorized); // Returning an observable of boolean using 'of' operator
+  }*/
+
+
+
+
+  getToken(data:AuthRequest):Observable<String>{
+    return  this.http.post(this.baseURL+"userlogin",data,{ responseType: 'text' });
+   }
+ 
+   getRole(name:string){
+     return this.http.get(this.baseURL+`getrole/${name}`,{ responseType: 'text' });
+   }
+   getId(name:String){
+     return this.http.get(this.baseURL+`getid/${name}`);
+   }
+
+   setToken(token:String){
+    sessionStorage.setItem("jwttoken", token.toString());
   }
+
+  getjwtToken(){
+    this.token=sessionStorage.getItem("jwttoken");
+    this.tokenString="Bearer "+this.token;
+    return this.tokenString;
+  }
+
+
+
+
+
 
 
 

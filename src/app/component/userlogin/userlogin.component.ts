@@ -9,7 +9,7 @@ import { JwtClientService } from 'src/app/service/jwt-client.service';
   styleUrls: ['./userlogin.component.css']
 })
 export class UserloginComponent {
-  response: any;
+ /*  response: any;
   token: any;
   authRequest: AuthRequest = new AuthRequest();
   isLoggedIn: boolean = false; 
@@ -65,5 +65,5 @@ logout() {
 
   
   this.router.navigate(['/welcome']); 
-}
+} */
 }

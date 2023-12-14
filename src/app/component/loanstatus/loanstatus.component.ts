@@ -31,8 +31,8 @@ getLoanStatus(loanNo: number) {
 
 }
 logout() {
-  this.jwtService.clearToken();
-  this.router.navigate(['']); 
+  //this.jwtService.clearToken();
+  this.router.navigate(['/userlogin']); 
   }
 
 }

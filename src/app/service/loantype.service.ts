@@ -9,35 +9,45 @@ import { JwtClientService } from './jwt-client.service';
 })
 export class LoantypeService {
 
-  constructor(private http:HttpClient, private jwtService:JwtClientService) { }
+  constructor(private http:HttpClient, private service:JwtClientService) { }
 
 
   baseURL:string = 'http://localhost:8485/api/v1/loan-type';
 
 
   createLoanType(body:LoanTypeDTO):Observable<LoanTypeDTO>{
-    const token = this.jwtService.getToken();
+  /*   const token = this.jwtService.getToken();
     
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
-    console.log(headers);
-
+    console.log(headers); */
+    let jwtTokenString=this.service.getjwtToken();
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
     
     return this.http.post<LoanTypeDTO>(this.baseURL+"/addloantype",body,{headers});
   
   }
 
   getAllLoanType():Observable<LoanTypeDTO[]>{
-    const token = this.jwtService.getToken();
+   /*  const token = this.jwtService.getToken();
     
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
-    console.log(headers);
+    console.log(headers); */
+
+    let jwtTokenString=this.service.getjwtToken();
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
+
+
     return this.http.get<LoanTypeDTO[]>(this.baseURL+"/getAllloantype",{headers});
   
   
   }
   deleteByLoanTypeId(loanTypeId:number):Observable<string>{
+
+
+    let jwtTokenString=this.service.getjwtToken();
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
 
     return  this.http.delete<string>(this.baseURL+`/deleteloantype/${loanTypeId}`);
     
@@ -46,24 +56,28 @@ export class LoantypeService {
 
     findByLoanTypeId(loanTypeId:number):Observable<LoanTypeDTO[]>{
 
-      const token = this.jwtService.getToken();
+      /* const token = this.jwtService.getToken();
     
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       console.log(token);
-      console.log(headers);
+      console.log(headers); */
+
+      let jwtTokenString=this.service.getjwtToken();
+      const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
 
      return this.http.get<LoanTypeDTO[]>(this.baseURL+`/getbyloantypeid/${loanTypeId}`,{headers});
 
     }
 
     updateByLoanTypeId(loanType:LoanTypeDTO):Observable<LoanTypeDTO>{
-      const token = this.jwtService.getToken();
+      /* const token = this.jwtService.getToken();
     
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       console.log(token);
-      console.log(headers);
+      console.log(headers); */
     
-
+      let jwtTokenString=this.service.getjwtToken();
+      const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
     
       return  this.http.put<LoanTypeDTO>(this.baseURL+`/updateloantype/${loanType.loanTypeId}`,loanType,{headers});
              

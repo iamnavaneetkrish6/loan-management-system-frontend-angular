@@ -32,7 +32,13 @@ export class LoanhistoryComponent {
 
 
 }
-
+delete(loan:number){
+  this.loanService.deleteByLoanNo(loan).subscribe(
+    reponse => {
+      console.log(reponse);
+    }
+  )
+}
 
 
 goBack(){
@@ -40,8 +46,8 @@ goBack(){
 }
 
 logout() {
-  this.jwtService.clearToken();
-  this.router.navigate(['']); 
+  //this.jwtService.clearToken();
+  this.router.navigate(['/userlogin']); 
   }
 
 }

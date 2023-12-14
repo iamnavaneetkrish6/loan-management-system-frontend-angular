@@ -17,17 +17,19 @@
 </div>
 
 <div class="form-group">
-    <label>Account Number:</label>
-    <input type="number" class="form-control" #accountNumberControl="ngModel" name="accountNumber" required ngModel>
-    <span style="color: red;" *ngIf="accountNumberControl.touched && accountNumberControl.invalid">accountNumber is Mandatory</span>
+    <label>Aadhar number:</label>
+    <input type="text" class="form-control" #aadharNumberControl="ngModel" name="aadharNumber" required ngModel>
+    <span style="color: red;" *ngIf="aadharNumberControl.touched && aadharNumberControl.invalid">Aadhar number is Mandatory</span>
 </div>
 
 
- <div class="form-group">
-    <label>Aadhar Number:</label>
-    <input type="number" class="form-control" #aadharNumberControl="ngModel" name="aadharNumber" required ngModel>
-    <span style="color: red;" *ngIf="aadharNumberControl.touched && aadharNumberControl.invalid">aadharNumber is Mandatory</span>
+<div class="form-group">
+    <label>Account number:</label>
+    <input type="text" class="form-control" #accountNumberControl="ngModel" name="accountNumber" required ngModel>
+    <span style="color: red;" *ngIf="accountNumberControl.touched && accountNumberControl.invalid">account Number is Mandatory</span>
 </div>
+
+
 
 <div class="form-group">
       <label>Pan Card:</label>
@@ -41,3 +43,4 @@
 
 </form>
 </div>
+

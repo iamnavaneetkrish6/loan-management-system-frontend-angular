@@ -19,6 +19,9 @@ import { LoanManageComponent } from './component/loan-manage/loan-manage.compone
 import { AddaccountdetailComponent } from './component/addaccountdetail/addaccountdetail.component';
 import { FileHandlingComponent } from './component/file-handling/file-handling.component';
 import { FileDownloadComponent } from './component/file-download/file-download.component';
+import { AddpropertydetailComponent } from './component/addpropertydetail/addpropertydetail.component';
+import { EmiCalculatorComponent } from './component/emi-calculator/emi-calculator.component';
+import { LoanTypesComponent } from './component/loan-types/loan-types.component';
 
 const routes: Routes = [
   {path:'',component:WelcomeComponent},
@@ -39,7 +42,10 @@ const routes: Routes = [
   {path:'loan-manage',component:LoanManageComponent},
   {path:"addaccountdetail", component:AddaccountdetailComponent},
   {path:"fileupload",component:FileHandlingComponent},
-  {path:"filedownload",component:FileDownloadComponent}
+  {path:"filedownload",component:FileDownloadComponent},
+  {path:"addproperty", component:AddpropertydetailComponent },
+  {path:"emi-calculator", component:EmiCalculatorComponent},
+  {path:"loan-types", component:LoanTypesComponent}
 ];
 
 @NgModule({

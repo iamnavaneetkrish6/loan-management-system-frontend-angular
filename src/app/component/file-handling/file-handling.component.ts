@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { saveAs } from 'file-saver';
 import { FileServiceService } from 'src/app/service/file-service.service';
+import { JwtClientService } from 'src/app/service/jwt-client.service';
 
 @Component({
   selector: 'app-file-handling',
@@ -13,7 +14,7 @@ export class FileHandlingComponent {
   filenames: string[] = [];
   fileStatus = { status: '', requestType: '', percent: 0 };
   
-  constructor(private fileService: FileServiceService, private router: Router) {
+  constructor(private fileService: FileServiceService, private router: Router, private jwtService: JwtClientService) {
     this.fileStatus = { status: '', requestType: '', percent: 0 };
     this.filenames = [];
   }
@@ -92,6 +93,12 @@ export class FileHandlingComponent {
   goBack(){
     this.router.navigate(['/user-dashboard']); 
   }
+
+  logout() {
+   // this.jwtService.clearToken();
+    this.router.navigate(['/userlogin']); 
+    }
+
 
 }
 

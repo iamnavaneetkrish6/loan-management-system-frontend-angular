@@ -21,7 +21,7 @@ export class ApplyloanComponent {
         console.log('Response from backend:', response);
         this.loanNo = response.loanNo;
         alert(`Loan number: ${this.loanNo} Note this Loan Number to know your loan approval status`); 
-        this.router.navigate(['/fileupload']); 
+        this.router.navigate(['/addproperty']); 
 
       });
     }
@@ -30,8 +30,8 @@ export class ApplyloanComponent {
         this.router.navigate(['/user-dashboard']); 
       }  
       logout() {
-        this.jwtService.clearToken();
-        this.router.navigate(['']); 
+       // this.jwtService.clearToken();
+        this.router.navigate(['/userlogin']); 
         }
 
 }

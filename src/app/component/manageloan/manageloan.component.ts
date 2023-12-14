@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoanApplyDTO } from 'src/app/model/loan-apply-dto';
 import { LoanserviceService } from 'src/app/service/loanservice.service';
@@ -12,7 +12,7 @@ import { JwtClientService } from 'src/app/service/jwt-client.service';
   templateUrl: './manageloan.component.html',
   styleUrls: ['./manageloan.component.css']
 })
-export class ManageloanComponent {
+export class ManageloanComponent implements OnInit{
 constructor(private loanService: LoanserviceService,private router: Router, private fileService: FileServiceService, private jwtService: JwtClientService){}
 
 loan:LoanApplyDTO[] = [];
@@ -20,7 +20,7 @@ filenames: string[] = [];
 fileStatus = { status: '', requestType: '', percent: 0 };
 filenameToDownload!:string;
 extentsion:string = ".pdf";
-ngOninit(){
+ngOnInit(){
 this.getAllLoan();
 }
 
@@ -115,7 +115,7 @@ private updateStatus(loaded: number, total: number, requestType: string): void {
   this.fileStatus.percent = Math.round(100 * loaded / total);
 }
 logout() {
-  this.jwtService.clearToken();
+  //this.jwtService.clearToken();
   this.router.navigate(['']); 
   }
 }

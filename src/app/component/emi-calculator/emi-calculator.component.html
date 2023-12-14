@@ -1,0 +1,55 @@
+<div class="container rounded-8 p-3" style="margin-top: 30px; margin-left: 30px;">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="bg-white p-4 rounded">
+          <h2 class="font-weight-bold mb-4">EMI Calculator</h2>
+  
+          <form #loanForm="ngForm">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="loanAmount">Loan Amount:</label>
+                  <input type="number" id="loanAmount" name="loanAmount" [(ngModel)]="loanAmount" class="form-control" required />
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="tenure">Tenure in Months:</label>
+                  <input type="number" id="tenure" name="tenure" [(ngModel)]="tenure" class="form-control" required />
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="interest">Interest:</label>
+                  <input type="number" id="interest" name="interest" [(ngModel)]="interest" class="form-control" required />
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-sm-12">
+                <button type="button" class="btn btn-primary" (click)="calAndShowEmi()" [disabled]="!loanForm.form.valid">Calculate</button>
+              </div>
+            </div>
+  
+            <!-- Display EMI in a Bootstrap card when the submit button is clicked -->
+            <div class="row mt-3" *ngIf="showEmi">
+              <div class="col-sm-12">
+                <div class="card rounded">
+                  <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"><b>EMI: {{ emi }}/m</b></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,6 +1,6 @@
 <br>
 <div  class="container  col-lg-6">
-    <h2 style="text-align:center">Account Detail</h2>
+    <h2 style="text-align:center">Property Detail :</h2>
     <form #myform="ngForm" class="container col-md-4" (ngSubmit)="submitForm(myform.value)">
   
   
@@ -17,7 +17,7 @@
 </div>
 
  <div class="form-group">
-    <label>Property Value:</label>
+    <label>Property Value (Approx):</label>
     <input type="number" class="form-control" #propertyValueControl="ngModel" name="propertyValue" required ngModel>
     <span style="color: red;" *ngIf="propertyValueControl.touched && propertyValueControl.invalid">propertyValue is Mandatory</span>
 </div>
@@ -29,3 +29,7 @@
 
 </form>
 </div>
+
+<div id="Logout">
+    <button class="btn btn-danger" (click)="logout()">Logout</button>
+  </div>

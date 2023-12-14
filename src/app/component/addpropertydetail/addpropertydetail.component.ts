@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PropertyDetailDTO } from 'src/app/model/property-detail-dto';
+import { JwtClientService } from 'src/app/service/jwt-client.service';
 import { PropertydetailserviceService } from 'src/app/service/propertydetailservice.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { PropertydetailserviceService } from 'src/app/service/propertydetailserv
 })
 export class AddpropertydetailComponent {
 
-  constructor(private propertyService: PropertydetailserviceService,private router: Router) {}
+  constructor(private propertyService: PropertydetailserviceService,private router: Router, private jwtService: JwtClientService) 
+  {   }
 
 
   submitForm(data:PropertyDetailDTO) {
@@ -19,13 +21,26 @@ export class AddpropertydetailComponent {
         console.log('Response from backend:', response);
         
       });
+      alert('property details added'); 
+      this.router.navigate(['/fileupload']); 
     }
       goBack ()
       {
         this.router.navigate(['/userdashboard']); 
       }  
-
+      logout() {
+       // this.jwtService.clearToken();
+        this.router.navigate(['/userlogin']); 
+        }
 
 
 
 }
+
+
+
+
+
+
+
+

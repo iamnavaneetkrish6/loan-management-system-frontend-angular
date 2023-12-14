@@ -10,7 +10,7 @@ import { JwtClientService } from './jwt-client.service';
 export class LoaninformationService {
   
 
-  constructor(private http:HttpClient, private jwtService:JwtClientService) { }
+  constructor(private http:HttpClient, private service:JwtClientService) { }
 
   baseURL:string = 'http://localhost:8485/api/v1/customer-loan-information';
 
@@ -18,12 +18,13 @@ export class LoaninformationService {
   createCustomerLoanInformation(body:CustomerLoanInformationDTO):Observable<CustomerLoanInformationDTO>{
 
 
-    const token = this.jwtService.getToken();
+   /*  const token = this.jwtService.getToken();
     
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
-    console.log(headers);
-    
+    console.log(headers); */
+    let jwtTokenString=this.service.getjwtToken();
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
     return this.http.post<CustomerLoanInformationDTO>(this.baseURL+"/addcustomerloaninformation",body);
   
   }
@@ -31,12 +32,13 @@ export class LoaninformationService {
   getAllCustomerLoanInformation():Observable<CustomerLoanInformationDTO[]>{
 
 
-    const token = this.jwtService.getToken();
+    /* const token = this.jwtService.getToken();
     
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
-    console.log(headers);
-
+    console.log(headers); */
+    let jwtTokenString=this.service.getjwtToken();
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
     return this.http.get<CustomerLoanInformationDTO[]>(this.baseURL+"/getAllcustomerloaninformation");
   
   
@@ -44,12 +46,13 @@ export class LoaninformationService {
   deleteByCustomerLoanInformationId(customerLoanInfoId:number):Observable<string>{
 
 
-    const token = this.jwtService.getToken();
+  /*   const token = this.jwtService.getToken();
     
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
-    console.log(headers);
-
+    console.log(headers); */
+    let jwtTokenString=this.service.getjwtToken();
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
     return  this.http.delete<string>(this.baseURL+`/deletecustomerloaninformation/${customerLoanInfoId}`);
     
     }
@@ -58,12 +61,13 @@ export class LoaninformationService {
     findByCustomerLoanInformationId(loanNo:number):Observable<CustomerLoanInformationDTO>{
 
       
-    const token = this.jwtService.getToken();
+    /* const token = this.jwtService.getToken();
     
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
-    console.log(headers);
-
+    console.log(headers); */
+    let jwtTokenString=this.service.getjwtToken();
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
      return this.http.get<CustomerLoanInformationDTO>(this.baseURL+`/getbycustomerloaninformationid/${loanNo}`);
 
     }
@@ -71,12 +75,13 @@ export class LoaninformationService {
     updateByCustomerLoanInformationId(customerLoanInfoId:CustomerLoanInformationDTO):Observable<CustomerLoanInformationDTO>{
 
       
-    const token = this.jwtService.getToken();
+    /* const token = this.jwtService.getToken();
     
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
-    console.log(headers);
-    
+    console.log(headers); */
+    let jwtTokenString=this.service.getjwtToken();
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
 
     
       return  this.http.put<CustomerLoanInformationDTO>(this.baseURL+`/updatecustomerloaninformation/${customerLoanInfoId.loanInformationId}`,customerLoanInfoId);
@@ -89,11 +94,14 @@ export class LoaninformationService {
       getAllCustomerLoanInformationByName(name:string):Observable<CustomerLoanInformationDTO[]>{
 
         
-    const token = this.jwtService.getToken();
+    /* const token = this.jwtService.getToken();
     
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
-    console.log(headers);
+    console.log(headers); */
+
+    let jwtTokenString=this.service.getjwtToken();
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
         return this.http.get<CustomerLoanInformationDTO[]>(this.baseURL+`/getloanhistory/${name}`);
       
       

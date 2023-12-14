@@ -29,6 +29,8 @@ import { CreateLoanStatusComponent } from './component/create-loan-status/create
 import { LoanManageComponent } from './component/loan-manage/loan-manage.component';
 import { FileHandlingComponent } from './component/file-handling/file-handling.component';
 import { FileDownloadComponent } from './component/file-download/file-download.component';
+import { EmiCalculatorComponent } from './component/emi-calculator/emi-calculator.component';
+import { LoanTypesComponent } from './component/loan-types/loan-types.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { FileDownloadComponent } from './component/file-download/file-download.c
     CreateLoanStatusComponent,
     LoanManageComponent,
     FileHandlingComponent,
-    FileDownloadComponent
+    FileDownloadComponent,
+    EmiCalculatorComponent,
+    LoanTypesComponent
   ],
   imports: [
     BrowserModule,

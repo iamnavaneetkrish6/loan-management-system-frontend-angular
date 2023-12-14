@@ -9,16 +9,19 @@ import { JwtClientService } from './jwt-client.service';
 })
 export class PropertydetailserviceService {
 
-  constructor(private http:HttpClient, private jwtService:JwtClientService) { }
+  constructor(private http:HttpClient, private service:JwtClientService) { }
 
   baseURL:string = 'http://localhost:8485/api/v1/property-details';
 
   createPropertyDetail(body:PropertyDetailDTO):Observable<PropertyDetailDTO>{
-    const token = this.jwtService.getToken();
+/*     const token = this.jwtService.getToken();
     
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
-    console.log(headers);
+    console.log(headers); */
+
+    let jwtTokenString=this.service.getjwtToken();
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
 
     
     return this.http.post<PropertyDetailDTO>(this.baseURL+"/addpropertydetail",body,{headers});
@@ -27,12 +30,13 @@ export class PropertydetailserviceService {
 
   getAllPropertyDetail():Observable<PropertyDetailDTO[]>{
 
-    const token = this.jwtService.getToken();
+/*     const token = this.jwtService.getToken();
     
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
-    console.log(headers);
-
+    console.log(headers); */
+    let jwtTokenString=this.service.getjwtToken();
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
 
     return this.http.get<PropertyDetailDTO[]>(this.baseURL+"/getAllpropertydetail",{headers});
   
@@ -40,11 +44,14 @@ export class PropertydetailserviceService {
   }
   deleteByPropertyDetailId(propertyId:number):Observable<string>{
 
-    const token = this.jwtService.getToken();
+   /*  const token = this.jwtService.getToken();
     
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
-    console.log(headers);
+    console.log(headers); */
+
+    let jwtTokenString=this.service.getjwtToken();
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
     return  this.http.delete<string>(this.baseURL+`/deletepropertydetail/${propertyId}`,{headers});
     
     }
@@ -52,24 +59,28 @@ export class PropertydetailserviceService {
 
     findByPropertyDetailId(propertyId:number):Observable<PropertyDetailDTO[]>{
 
-      const token = this.jwtService.getToken();
+      /* const token = this.jwtService.getToken();
     
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       console.log(token);
-      console.log(headers);
-  
+      console.log(headers); */
+      let jwtTokenString=this.service.getjwtToken();
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
+
+
      return this.http.get<PropertyDetailDTO[]>(this.baseURL+`/getbypropertydetailid/${propertyId}`,{headers});
 
     }
 
     updateByPropertyDetailId(property:PropertyDetailDTO):Observable<PropertyDetailDTO>{
 
-      const token = this.jwtService.getToken();
+      /* const token = this.jwtService.getToken();
     
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       console.log(token);
-      console.log(headers);
-
+      console.log(headers); */
+      let jwtTokenString=this.service.getjwtToken();
+      const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
     
       return  this.http.put<PropertyDetailDTO>(this.baseURL+`/updatepropertydetail/${property.propertyId}`,property,{headers});
              

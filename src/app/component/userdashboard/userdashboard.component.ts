@@ -25,12 +25,12 @@ export class UserdashboardComponent {
   }
   loanTypes()
   {
-    this.router.navigate(['/loantypes']);
+    this.router.navigate(['//loan-types']);
   
   }
   logout() {
-    this.jwtService.clearToken();
-    this.router.navigate(['']); 
+   // this.jwtService.clearToken();
+    this.router.navigate(['/userlogin']); 
     }
   
 }

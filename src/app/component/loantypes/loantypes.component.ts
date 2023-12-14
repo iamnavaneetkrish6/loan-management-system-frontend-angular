@@ -34,7 +34,7 @@ getAllLoanTypes(){
 
 }
 logout() {
-  this.jwtService.clearToken();
+  //this.jwtService.clearToken();
   this.router.navigate(['']); 
   }
 

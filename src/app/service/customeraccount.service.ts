@@ -9,7 +9,7 @@ import { JwtClientService } from './jwt-client.service';
 })
 export class CustomeraccountService {
 
-  constructor(private http:HttpClient, private jwtService:JwtClientService) { }
+  constructor(private http:HttpClient, private service:JwtClientService) { }
 
 
   baseURL:string = 'http://localhost:8485/api/v1/customer-account-details/';
@@ -25,11 +25,14 @@ export class CustomeraccountService {
 
   getAllCustomerAccount():Observable<CustomerAccountDTO[]>{
 
-    const token = this.jwtService.getToken();
+    /* const token = this.jwtService.getToken();
     
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
-    console.log(headers);
+    console.log(headers); */
+
+    let jwtTokenString=this.service.getjwtToken();
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
 
 
     return this.http.get<CustomerAccountDTO[]>(this.baseURL+"getallcustomeraccount-details",{headers});
@@ -37,22 +40,30 @@ export class CustomeraccountService {
   
   }
   deleteByCustomerAccountId(customerAccId:number):Observable<string>{
-    const token = this.jwtService.getToken();
+    /* const token = this.jwtService.getToken();
     
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log(token);
-    console.log(headers);
+    console.log(headers); */
+
+    let jwtTokenString=this.service.getjwtToken();
+    const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
+
     return  this.http.delete<string>(this.baseURL+`deletecustomeraccount-details/${customerAccId}`,{headers});
     
     }
     
 
     findByCustomerAccountId(customerAccId:number):Observable<CustomerAccountDTO[]>{
-      const token = this.jwtService.getToken();
+      /* const token = this.jwtService.getToken();
     
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       console.log(token);
-      console.log(headers);
+      console.log(headers); */
+
+
+      let jwtTokenString=this.service.getjwtToken();
+      const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
 
      return this.http.get<CustomerAccountDTO[]>(this.baseURL+`getbycustomeraccount-detailsid/${customerAccId}`,{headers});
 
@@ -60,12 +71,13 @@ export class CustomeraccountService {
 
     updateByCustomerAccountId(customerAcc:CustomerAccountDTO):Observable<CustomerAccountDTO>{
 
-      const token = this.jwtService.getToken();
+    /*   const token = this.jwtService.getToken();
     
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       console.log(token);
-      console.log(headers);
-
+      console.log(headers); */
+      let jwtTokenString=this.service.getjwtToken();
+      const headers =  new HttpHeaders().set("Authorization",jwtTokenString);
     
       return  this.http.put<CustomerAccountDTO>(this.baseURL+`updatecustomeraccount-details/${customerAcc.accountDetailsId}`,customerAcc,{headers});
              

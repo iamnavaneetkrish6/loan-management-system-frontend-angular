@@ -16,8 +16,8 @@ export class AdmindashboardComponent {
     this.router.navigate(['/manage-loan']); 
   }
   logout() {
-    this.jwtService.clearToken();
-    this.router.navigate(['']); 
+   // this.jwtService.clearToken();
+    this.router.navigate(['/adminlogin']); 
     }
 
 /*   manageUsers() {

@@ -20,6 +20,7 @@
         <th>Loan Type Name</th>
         <th>Loan Amount</th>
         <th>Loan Status</th>
+        <th>Action(Delete)</th>
 
     </tr> 
     <tr *ngFor="let loanHistory of loan; index as i">
@@ -30,6 +31,7 @@
         <td>{{loanHistory.loanTypeName}}</td> 
         <td>{{loanHistory.loanAmount}}</td> 
         <td>{{loanHistory.loanStatus}}</td>  
+        <td><button type="button" class="btn btn-danger"  (click)="delete(loanHistory.loanNo)" >Delete</button></td> 
 
     
          
