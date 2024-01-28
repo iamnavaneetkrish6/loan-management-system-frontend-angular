@@ -85,4 +85,14 @@ export class CustomerserviceService {
       
       }
 
+
+      getNamebyUsername(username: string): Observable<string> {
+        let jwtTokenString = this.service.getjwtToken();
+        const headers = new HttpHeaders().set("Authorization", jwtTokenString);
+      
+        return this.http.get(this.baseURL + `getCustomerName/${username}`, { headers, responseType: 'text' });
+      }
+      
+
+
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtClientService } from 'src/app/service/jwt-client.service';
+import { SharedService } from 'src/app/service/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ export class LoginComponent {
   errorOccured!:boolean;
   id!:string;
   role!:string;
-constructor(private service: JwtClientService, private route: Router)
+  username!:string;
+constructor(private service: JwtClientService, private route: Router,private servicee: SharedService)
 {
 
 }
@@ -21,6 +23,16 @@ login(data: any) {
   this.service.getToken(data.form.value).subscribe((token) => {
     if (token) {
       this.service.setToken(token);
+
+
+
+      this.username = data.form.value.username;
+
+      this.servicee.changeUsername(data.form.value.username);
+      this.servicee.setUsername(data.form.value.username);
+      sessionStorage.setItem("username", this.username.toString());
+      localStorage.setItem("username", this.username);
+
 
       this.service.getRole(data.form.value.username).subscribe((role) => {
         sessionStorage.setItem("status", true.toString()); // Use true.toString() instead of true.valueOf.toString()

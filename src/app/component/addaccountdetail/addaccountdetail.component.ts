@@ -12,8 +12,7 @@ export class AddaccountdetailComponent {
 
   constructor(private customerAccountService: CustomeraccountService,private router: Router) {}
 
-  minlength: number=14; 
-   maxlength: number=14;
+
 
   submitForm(data:CustomerAccountDTO) {
     this.customerAccountService.createCustomerAccount(data)
